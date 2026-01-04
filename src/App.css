@@ -1,0 +1,138 @@
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Навигация */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(15, 32, 39, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-menu li {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-menu li.active-nav {
+  color: #a8edea;
+}
+
+.nav-menu li:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a8edea 0%, #fed6e3 100%);
+  transition: width 0.3s ease;
+}
+
+.nav-menu li.active-nav:after {
+  width: 100%;
+}
+
+.nav-menu li:hover {
+  color: #fff;
+}
+
+.nav-menu li:hover:after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(15, 32, 39, 0.98);
+    backdrop-filter: blur(10px);
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-menu.active {
+    max-height: 300px;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-menu li:after {
+    display: none;
+  }
+
+  .nav-content {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+  }
+}
